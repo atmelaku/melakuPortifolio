@@ -1,27 +1,31 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: #1A1E08;
+  color: #E3E4E1;
   margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Times, "Times New Roman", Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #F0F2E7;
 }
 
 ul {
   margin: 0;
 }
-
-.bg-steel {
-  background-color: darkolivegreen;
+.fixed-top {
+  background: #FBFCF7;
 }
-
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: black;
+  font-size: 22px;
 }
 
-.site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: brown;
+  font-style: italic;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -29,11 +33,12 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #141412;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  color: #F0F2E7;
 }
 
 .article-title {
@@ -81,4 +86,48 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+
+
+
+
+
+/* about page */
+.quote {
+  font-style: italic;
+}
+#about-page {
+  display: flex;
+  justify-content: space-around;
+
+}
+div.bio {
+  padding-left: 2rem;
+}
+div.picture {
+  padding-right: 2rem;
+}
+/* footer style */
+footer {
+  background-color: #1B100E;
+  color: white;
+  padding: 10px;
+
+}
+i {
+  font-size: 30px;
+  color: white;
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+ul.contact-list li {
+  list-style: none;
 }

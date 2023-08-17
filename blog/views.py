@@ -73,3 +73,5 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, "blog/about.html")
+def resume(request):
+    return render(request, "blog/resume.html")

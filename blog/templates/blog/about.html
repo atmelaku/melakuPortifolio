@@ -1,11 +1,29 @@
 {% extends "blog/base.html" %}
+{% load static %}
 
 
 {% block content %}
+<p class="quote">I build things, and sometimes I break things. But I learn from the mistakes.</p>
 
-  <h1>Hey, Welcome! My Name is Alebachew Melaku
-I am a Computer  Science Student at Millersville University.  </h1>
-<h1>This Web app provides users to view and create posts. However in order to create a new post users need to
-register first and login to the site. Posts can be created, deleted, Updated in this blog post web app.</h1>
+<div id="about-page">
+  <div class="picture">
+    <img src="{% static 'asset/imgs/gradme.jpg' %}" alt="my pic">
+  </div>
+  <div class="bio">
+    <p>
+      Hey there, I'm Alebachew Melaku, and I'm passionate about web development. With expertise in both frontend and backend development,
+      I'm all about bringing creative concepts to life through code. I thrive on challenges and continuously seek opportunities to expand my skills.
+      Eager to learn and grow, I'm always on the lookout for new ways to add value.
+    </p>
+
+    <h2>Curious to Learn More About Me?</h2>
+    <ul>
+        <li>I graduated with an associate degree in Software Engineering from Thaddeus Stevens College of Technology in May 2021.</li>
+        <li>I earned a Bachelor's degree in Computer Science from Millersville University in May 2023.</li>
+        <li>After completing my studies, I dedicated 12 weeks to an internship program at Gateway Ticketing Systems.</li>
+        <li>Throughout my academic journey, I crafted various projects, including a church website, a social media platform, an online bookstore, and this very website. For more, you can explore my GitHub account.</li>
+    </ul>
+  </div>
+</div>
 
 {% endblock %}
