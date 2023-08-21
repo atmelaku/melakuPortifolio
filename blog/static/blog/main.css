@@ -31,7 +31,9 @@ ul {
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
-
+.navbar-dark .navbar-toggler-icon {
+  background-color: #1E1E12;
+}
 .content-section {
   background: #141412;
   padding: 10px 20px;
@@ -113,6 +115,15 @@ div.bio {
 div.picture {
   padding-right: 2rem;
 }
+
+
+/* profile page */
+
+.form-control {
+  background-color: black;
+  color: white;
+}
+
 /* footer style */
 footer {
   background-color: #1B100E;
