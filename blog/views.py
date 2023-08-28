@@ -13,6 +13,7 @@ from django.contrib.auth.mixins import (
                 LoginRequiredMixin,
                 UserPassesTestMixin
                 )
+
 def home(request):
 
     context = {
@@ -75,3 +76,7 @@ def about(request):
     return render(request, "blog/about.html")
 def resume(request):
     return render(request, "blog/resume.html")
+def gallery_view(request):
+    return render(request, 'blog/gallery.html')
+def index(request):
+    return render(request, 'index.html')
