@@ -23,6 +23,7 @@ urlpatterns = [
     path('resume/', views.resume, name='blog-resume'),
     path('gallery/', views.gallery, name='blog-gallery'),
     path('delete/<int:image_id>/', views.delete_image, name='delete-image'),
+    path('edit/<int:image_id>/', views.edit_image, name='edit-image'),
 
 
 

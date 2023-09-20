@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<h2>Edit Image and Description</h2>
+
+<div class="upload_img--form">
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="upload-pics">
+          <div class="choose">
+              {{ form.as_p }}
+          </div>
+      </div>
+      <div class="upload">
+          <button type="submit">Upload</button>
+          <button id="cancel-btn" type="button" name="button"><a href="{% url 'blog-gallery' %}">Cancel</a></button>
+
+      </div>
+  </form>
+</div>
+
+
+{% endblock %}

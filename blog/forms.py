@@ -8,3 +8,8 @@ class UploadImages(forms.ModelForm):
     class Meta:
         model = Images
         fields = ["image", "description"]
+
+class EditImageForm(forms.ModelForm):
+    class Meta:
+        model = Images
+        fields = ["image", "description"]

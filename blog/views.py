@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import (
                 LoginRequiredMixin,
                 UserPassesTestMixin
                 )
-from .forms import UploadImages
+from .forms import UploadImages, EditImageForm
 from .models import Images
 
 def home(request):
@@ -101,11 +101,32 @@ def gallery(request):
     }
 
     return render(request, "blog/gallery.html", context)
-    
+
 def delete_image(request, image_id):
     image = get_object_or_404(Images, pk=image_id)
     if request.method == "POST":
         image.delete()
         messages.success(request, "Image deleted successfully.")
         return redirect("blog-gallery")
-    return render(request, "blog/delete_image_confirm.html", {"image": image})
+    context = {
+        "image": image
+    }
+
+    return render(request, "blog/delete_image_confirm.html", context)
+
+def edit_image(request, image_id):
+    image = get_object_or_404(Images, pk=image_id)
+    if request.method == "POST":
+        form = EditImageForm(request.POST, request.FILES, instance=image)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Image and description updated successfully.")
+            return redirect("blog-gallery")
+    else:
+        form = EditImageForm(instance=image)
+    context = {
+        "form": form,
+        "image": image
+    }
+
+    return render(request, "blog/edit_image.html", context)

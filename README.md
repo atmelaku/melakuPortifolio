@@ -2,7 +2,7 @@
 [ANSWERED]-DJANGO ADMIN AND SQLITE: DATABASE DISK IMAGE IS MALFORMED-DJANGO
 Only three steps.
 
-delete db.sqlite3 and all migrations files
+delete db.sqlite3 and all migrations files | on heroku console too
 run python manage.py makemigrations
 run python manage.py migrate
 source:

@@ -177,6 +177,8 @@ div.picture {
 
 }
 .image-item {
+  color: black;
+  font-style: italic;
   text-align: center;
   background: white;
   margin-top: 1rem;
@@ -189,6 +191,13 @@ div.picture {
   max-width: 300px;
   min-height: 240px;
 
+}
+.upload #cancel-btn {
+  background: brown;
+
+}
+.upload #cancel-btn > a {
+  color: white;
 }
 /* footer style */
 footer {
