@@ -185,11 +185,16 @@ div.picture {
   width: 22rem;
   margin-bottom: 20px;
   margin-left: 2rem;
+  border-radius: 1rem;
 }
 .image-item img {
-  min-width: 200px;
+  min-width: 240px;
   max-width: 300px;
   min-height: 240px;
+
+}
+.btn-danger, .btn-primary{
+  margin-bottom: 10px;
 
 }
 .upload #cancel-btn {

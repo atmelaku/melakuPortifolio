@@ -15,6 +15,7 @@ from django.contrib.auth.mixins import (
                 )
 from .forms import UploadImages, EditImageForm
 from .models import Images
+from django.contrib.auth.decorators import login_required
 
 def home(request):
 
@@ -82,7 +83,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 from django.contrib import messages
-
+@login_required
 def gallery(request):
     if request.method == "POST":
         img_form = UploadImages(request.POST, request.FILES)
@@ -101,7 +102,7 @@ def gallery(request):
     }
 
     return render(request, "blog/gallery.html", context)
-
+@login_required
 def delete_image(request, image_id):
     image = get_object_or_404(Images, pk=image_id)
     if request.method == "POST":
@@ -113,7 +114,7 @@ def delete_image(request, image_id):
     }
 
     return render(request, "blog/delete_image_confirm.html", context)
-
+@login_required
 def edit_image(request, image_id):
     image = get_object_or_404(Images, pk=image_id)
     if request.method == "POST":

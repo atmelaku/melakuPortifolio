@@ -42,7 +42,7 @@
         <div class="image-item">
             <img src="{{ image.image.url }}" alt="{{ image.description }}" style="max-height:300px">
             <p class="image-description">{{ image.description }}</p>
-            <a href="{% url 'delete-image' image.id %}">Delete</a>
+            <a href="{% url 'delete-image' image.id %}" class="btn btn-danger">Delete</a>
             <a href="{% url 'edit-image' image.id %}" class="btn btn-primary">Edit</a>
 
         </div>
