@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import  (
 
                 ListView,
@@ -13,6 +13,8 @@ from django.contrib.auth.mixins import (
                 LoginRequiredMixin,
                 UserPassesTestMixin
                 )
+from .forms import UploadImages
+from .models import Images
 
 def home(request):
 
@@ -21,6 +23,13 @@ def home(request):
     }
 
     return render(request, "blog/home.html", context)
+# about
+def about(request):
+    return render(request, "blog/about.html")
+# resume
+def resume(request):
+    return render(request, "blog/resume.html")
+
 class PostListView(ListView):
     model = Post
     template_name = "blog/home.html"
@@ -72,11 +81,31 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-def about(request):
-    return render(request, "blog/about.html")
-def resume(request):
-    return render(request, "blog/resume.html")
-def gallery_view(request):
-    return render(request, 'blog/gallery.html')
-def index(request):
-    return render(request, 'index.html')
+from django.contrib import messages
+
+def gallery(request):
+    if request.method == "POST":
+        img_form = UploadImages(request.POST, request.FILES)
+        if img_form.is_valid():
+            img_form.save()
+            messages.success(request, "Image uploaded successfully.")
+            return redirect("blog-gallery")
+    else:
+        img_form = UploadImages()
+
+    images = Images.objects.all()  # Assuming ImageModel is your model for storing images
+
+    context = {
+        "image_form": img_form,
+        "images": images,
+    }
+
+    return render(request, "blog/gallery.html", context)
+    
+def delete_image(request, image_id):
+    image = get_object_or_404(Images, pk=image_id)
+    if request.method == "POST":
+        image.delete()
+        messages.success(request, "Image deleted successfully.")
+        return redirect("blog-gallery")
+    return render(request, "blog/delete_image_confirm.html", {"image": image})

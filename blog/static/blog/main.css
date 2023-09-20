@@ -1,6 +1,9 @@
 body {
-  background: #1A1E08;
-  color: #E3E4E1;
+  background-image: url('../asset/imgs/backtwo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #f8f8f8;
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
@@ -16,15 +19,18 @@ ul {
   margin: 0;
 }
 .fixed-top {
-  background: #FBFCF7;
+  background-image: url('../asset/imgs/background_forWebsite.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .site-header .navbar-nav .nav-link {
-  color: black;
+  color: dimgrey;
   font-size: 22px;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: brown;
+  color: #e5fae5;
   font-style: italic;
 }
 
@@ -123,7 +129,67 @@ div.picture {
   background-color: black;
   color: white;
 }
+/* gallery */
+.upload_img--form {
+  color: black;
+  width:  100%;
+  height: 15rem;
+  border: green 5px solid;
+  background-color: white;
+  padding-left: 2rem;
+}
+.upload-pics {
+  display: block;
 
+}
+.upload-pics div, .upload{
+    margin-top: 1.7rem;
+}
+.upload button {
+  background: #33B3FF;
+  width: 5rem;
+  padding: 0.1rem;
+}
+.choose {
+  background: gray;
+}
+
+.description input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.description label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr);
+  gap: 3;
+
+}
+.image-item {
+  text-align: center;
+  background: white;
+  margin-top: 1rem;
+  width: 22rem;
+  margin-bottom: 20px;
+  margin-left: 2rem;
+}
+.image-item img {
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 240px;
+
+}
 /* footer style */
 footer {
   background-color: #1B100E;

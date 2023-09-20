@@ -14,3 +14,7 @@ class Post(models.Model):
         # this is for create post
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={"pk": self.pk})
+class Images(models.Model):
+    """docstring for uploading images."""
+    image = models.ImageField(default="default", upload_to="images")
+    description = models.CharField(max_length=100)

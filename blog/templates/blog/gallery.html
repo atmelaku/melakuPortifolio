@@ -1,8 +1,54 @@
 {% extends "blog/base.html" %}
 {% load static %}
-
 {% block content %}
-<div id="react-app">hello</div>
-<script type="module" src="{% static 'gallery.js' %}"></script>
+
+<h1>Image Gallery</h1>
+
+<!-- Display Flash Messages (if any) -->
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!-- Image Upload Form -->
+<div class="upload_img--form">
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="upload-pics">
+          <div class="choose">
+              {{ image_form.image.label_tag }}
+              {{ image_form.image }}
+          </div>
+          <div class="description">
+              {{ image_form.description.label_tag }}
+              {{ image_form.description }}
+          </div>
+      </div>
+      <div class="upload">
+          <button type="submit">Upload</button>
+      </div>
+  </form>
+</div>
+
+
+
+<!-- Display Uploaded Images -->
+<div class="image-gallery">
+    {% if images %}
+    <div class="image-container">
+        {% for image in images %}
+        <div class="image-item">
+            <img src="{{ image.image.url }}" alt="{{ image.description }}" style="max-height:300px">
+            <p class="image-description">{{ image.description }}</p>
+            <a href="{% url 'delete-image' image.id %}">Delete</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No images available.</p>
+    {% endif %}
+</div>
 
 {% endblock %}
